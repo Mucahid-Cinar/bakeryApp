@@ -18,25 +18,25 @@ function check(name,body) { body(); checks++; console.log('PASS '+name); }
 const db=schema();
 const stock=db.prepare('INSERT INTO DailyStock VALUES(?,?,?,?,?)');
 const sale=db.prepare('INSERT INTO SalesRecord(bread_type_id,date,quantity_sold) VALUES(?,?,?)');
-db.exec("INSERT INTO BreadType(id,name,daily_total_quantity) VALUES(1,'Ekmek',100),(2,'Ekmek B',100)");
-stock.run(1,'2026-10-19','Eski isim',100,0);
-stock.run(1,'2026-10-20','Yeni isim',120,0);
+db.exec("INSERT INTO BreadType(id,name,daily_total_quantity) VALUES(1,'Ekmek',100),(2,'Simit',100)");
+stock.run(1,'2026-10-19','Francala',100,0);
+stock.run(1,'2026-10-20','Köy Ekmeği',120,0);
 sale.run(1,'2026-10-19',30);sale.run(1,'2026-10-19',20);sale.run(1,'2026-10-20',40);
 check('multiple sales never multiply production',()=>{
   const rows=report(db,'2026-10-19','2026-10-20');
   assert.equal(rows.length,1);assert.equal(rows[0].produced,220);assert.equal(rows[0].sold,90);
 });
 check('rename aggregates one product and keeps old period title',()=>{
-  assert.equal(report(db,'2026-10-19','2026-10-20')[0].name,'Yeni isim');
-  assert.equal(report(db,'2026-10-19','2026-10-19')[0].name,'Eski isim');
+  assert.equal(report(db,'2026-10-19','2026-10-20')[0].name,'Köy Ekmeği');
+  assert.equal(report(db,'2026-10-19','2026-10-19')[0].name,'Francala');
 });
 check('archiving and default production changes never rewrite report',()=>{
-  db.exec("UPDATE BreadType SET name='Changed',daily_total_quantity=500,archived=1 WHERE id=1");
+  db.exec("UPDATE BreadType SET name='Kepekli',daily_total_quantity=500,archived=1 WHERE id=1");
   const row=report(db,'2026-10-19','2026-10-20')[0];
-  assert.equal(row.produced,220);assert.equal(row.sold,90);assert.equal(row.name,'Yeni isim');
+  assert.equal(row.produced,220);assert.equal(row.sold,90);assert.equal(row.name,'Köy Ekmeği');
 });
 check('same name with different identity stays separate',()=>{
-  stock.run(2,'2026-10-20','Yeni isim',10,0);
+  stock.run(2,'2026-10-20','Köy Ekmeği',10,0);
   assert.equal(report(db,'2026-10-19','2026-10-20').length,2);
 });
 check('inclusive range excludes adjacent days and never invents production',()=>{
@@ -49,7 +49,7 @@ check('new schema rejects negative and zero sale amounts',()=>{
   assert.throws(()=>stock.run(1,'2026-10-21','A',-1,0));
 });
 const legacy=new DatabaseSync(':memory:');
-legacy.exec("CREATE TABLE BreadType(id INTEGER PRIMARY KEY,name TEXT,daily_total_quantity INTEGER); CREATE TABLE SalesRecord(id INTEGER PRIMARY KEY,bread_type_id INTEGER,date TEXT,quantity_sold INTEGER); INSERT INTO BreadType VALUES(1,'Ekmek',100),(2,'Hatalı',10); INSERT INTO SalesRecord VALUES(1,1,'2025-06-02',30),(2,99,'2025-06-02',5),(3,2,'2025-06-02',20),(4,2,'2025-06-03',0),(5,2,'2025-06-04',-2),(6,2,'2025-06-04',8)");
+legacy.exec("CREATE TABLE BreadType(id INTEGER PRIMARY KEY,name TEXT,daily_total_quantity INTEGER); CREATE TABLE SalesRecord(id INTEGER PRIMARY KEY,bread_type_id INTEGER,date TEXT,quantity_sold INTEGER); INSERT INTO BreadType VALUES(1,'Ekmek',100),(2,'Pide',10); INSERT INTO SalesRecord VALUES(1,1,'2025-06-02',30),(2,99,'2025-06-02',5),(3,2,'2025-06-02',20),(4,2,'2025-06-03',0),(5,2,'2025-06-04',-2),(6,2,'2025-06-04',8)");
 legacy.exec(statements.find(s=>s.startsWith('ALTER TABLE BreadType')));
 statements.filter(s=>s.startsWith('CREATE TABLE DailyStock')||/^CREATE INDEX \w+ ON (SalesRecord|DailyStock)\(/.test(s)).forEach(s=>legacy.exec(s));
 legacy.exec(statements.find(s=>s.startsWith('INSERT INTO DailyStock')));

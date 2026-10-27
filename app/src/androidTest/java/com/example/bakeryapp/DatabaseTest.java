@@ -11,7 +11,7 @@ import static org.junit.Assert.*;
 import java.util.List;
 
 public class DatabaseTest {
-    private static final String TEST_DB_NAME = "BakeryStock-test.db";
+    private static final String TEST_DB_NAME = "BakeryStock-kontrol.db";
     private Context context;
     private DBHelper db;
     @Before public void setup() {
@@ -33,7 +33,7 @@ public class DatabaseTest {
         assertFalse(db.recordSale(id,day,0));
         assertFalse(db.recordSale(id,day,-1));
         assertFalse(db.setProduction(id,day,59));
-        assertTrue(db.updateBreadType(id,"Yeni isim",200));
+        assertTrue(db.updateBreadType(id,"Ekşi Mayalı Somun",200));
         StockRow row=db.report(day,day).get(0);
         assertEquals("Ekşi maya",row.name);
         assertEquals(100,row.produced); assertEquals(40,row.remaining());
@@ -106,11 +106,11 @@ public class DatabaseTest {
     @Test public void renameDoesNotSplitPeriodOrChangeOldDayName() {
         int id=bread(); String day=Dates.today(), previous=Dates.plusDays(day,-1);
         assertTrue(db.setProduction(id,previous,100));
-        assertTrue(db.updateBreadType(id,"Yeni isim",200));
+        assertTrue(db.updateBreadType(id,"Ekşi Mayalı Somun",200));
         assertTrue(db.setProduction(id,day,200));
         assertEquals(1,db.report(previous,day).size());
         assertEquals(300,db.report(previous,day).get(0).produced);
-        assertEquals("Yeni isim",db.report(previous,day).get(0).name);
+        assertEquals("Ekşi Mayalı Somun",db.report(previous,day).get(0).name);
         assertEquals("Ekşi maya",db.report(previous,previous).get(0).name);
     }
     @Test public void invalidInputsAndFutureDatesNeverCreateMovements() {
@@ -263,8 +263,8 @@ public class DatabaseTest {
             previous.execSQL("CREATE TABLE SalesRecord(id INTEGER PRIMARY KEY,bread_type_id INTEGER,date TEXT,quantity_sold INTEGER)");
             previous.execSQL("CREATE TABLE DailyStock(bread_type_id INTEGER,date TEXT,name TEXT,produced INTEGER,estimated INTEGER,planned INTEGER,PRIMARY KEY(bread_type_id,date))");
             previous.execSQL("CREATE TABLE BreadPlan(bread_type_id INTEGER,weekday INTEGER,quantity INTEGER,updated_on TEXT,PRIMARY KEY(bread_type_id,weekday))");
-            previous.execSQL("INSERT INTO BreadType VALUES(1,'Rye',40,0)");
-            previous.execSQL("INSERT INTO DailyStock VALUES(1,'2026-10-01','Rye',35,0,32)");
+            previous.execSQL("INSERT INTO BreadType VALUES(1,'Çavdar',40,0)");
+            previous.execSQL("INSERT INTO DailyStock VALUES(1,'2026-10-01','Çavdar',35,0,32)");
             previous.execSQL("INSERT INTO SalesRecord VALUES(1,1,'2026-10-01',10)");
             previous.execSQL("INSERT INTO BreadPlan VALUES(1,5,32,'2026-09-30')");
             previous.setVersion(4);
@@ -286,8 +286,8 @@ public class DatabaseTest {
             previous.execSQL("CREATE TABLE DailyStock(bread_type_id INTEGER,date TEXT,name TEXT,produced INTEGER,estimated INTEGER,planned INTEGER,sold_out_early INTEGER,PRIMARY KEY(bread_type_id,date))");
             previous.execSQL("CREATE TABLE BreadPlan(bread_type_id INTEGER,weekday INTEGER,quantity INTEGER,updated_on TEXT,PRIMARY KEY(bread_type_id,weekday))");
             previous.execSQL("CREATE TABLE PlanChange(id INTEGER PRIMARY KEY,bread_type_id INTEGER,weekday INTEGER,old_quantity INTEGER,new_quantity INTEGER,changed_on TEXT)");
-            previous.execSQL("INSERT INTO BreadType VALUES(1,'Rye',40,0)");
-            previous.execSQL("INSERT INTO DailyStock VALUES(1,'2026-10-01','Rye',35,0,32,1)");
+            previous.execSQL("INSERT INTO BreadType VALUES(1,'Çavdar',40,0)");
+            previous.execSQL("INSERT INTO DailyStock VALUES(1,'2026-10-01','Çavdar',35,0,32,1)");
             previous.execSQL("INSERT INTO SalesRecord VALUES(1,1,'2026-10-01',10)");
             previous.setVersion(5);
         }

@@ -19,7 +19,6 @@ android {
     buildTypes {
         debug {
             applicationIdSuffix '.qa'
-            versionNameSuffix '-test'
         }
         release {
             minifyEnabled false

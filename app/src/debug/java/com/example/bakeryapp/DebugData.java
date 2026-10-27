@@ -23,7 +23,7 @@ final class DebugData {
             try {
                 seedIfEmpty(helper);
             } catch (Exception e) {
-                Log.e(TAG, "Could not create test records", e);
+                Log.e(TAG, "Could not create sample records", e);
             }
         });
     }

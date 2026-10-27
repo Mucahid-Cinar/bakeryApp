@@ -21,12 +21,12 @@ public class ReportHighlightsTest {
 
     @Test public void unconfirmedZeroProductionAndTiesDoNotBecomeFalseLeaders() {
         ReportHighlights result=ReportHighlights.from(Arrays.asList(
-                new StockRow(1,"A",40,20,false),new StockRow(2,"B",80,40,false),
-                new StockRow(3,"Tahmini",1000,900,true),new StockRow(4,"Boş",0,0,false)));
+                new StockRow(1,"Poğaça",40,20,false),new StockRow(2,"Simit",80,40,false),
+                new StockRow(3,"Köy Ekmeği",1000,900,true),new StockRow(4,"Pide",0,0,false)));
         assertNull(result.highestRate);
         assertNull(result.lowestRate);
-        assertEquals("B",result.mostSold.name);
-        assertEquals("B",result.mostRemaining.name);
-        assertTrue(ReportHighlights.from(Collections.singletonList(new StockRow(1,"A",40,20,false))).isEmpty());
+        assertEquals("Simit",result.mostSold.name);
+        assertEquals("Simit",result.mostRemaining.name);
+        assertTrue(ReportHighlights.from(Collections.singletonList(new StockRow(1,"Poğaça",40,20,false))).isEmpty());
     }
 }

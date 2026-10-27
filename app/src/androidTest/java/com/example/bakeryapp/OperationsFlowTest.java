@@ -26,7 +26,7 @@ public class OperationsFlowTest {
     @Test public void createProduceSellCloseReopenAndInspectReport() {
         Context app=InstrumentationRegistry.getInstrumentation().getTargetContext();
         DBHelper helper=new DBHelper(app);
-        String name="QA Akış Kontrolü",today=Dates.today();
+        String name="Köy Ekmeği",today=Dates.today();
         int originalStatus=helper.dayStatus(today);
         int id=0;
         try {

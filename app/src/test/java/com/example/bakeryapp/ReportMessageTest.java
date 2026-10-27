@@ -27,7 +27,7 @@ public class ReportMessageTest {
     }
     @Test public void unverifiedStockDoesNotShareAFalseRemainder() {
         String message=ReportMessage.format("2026-10-27","2026-10-27",Arrays.asList(
-                new StockRow(1,"Çavdar",40,10,false),new StockRow(2,"Eski",20,5,true)));
+                new StockRow(1,"Çavdar",40,10,false),new StockRow(2,"Kepekli",20,5,true)));
         assertTrue(message.contains("Kalan: hesaplanamadı"));
         assertTrue(message.contains("üretim tahmini"));
     }
