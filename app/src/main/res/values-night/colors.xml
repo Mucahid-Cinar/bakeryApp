@@ -1,0 +1,7 @@
+<resources>
+    <color name="canvas">#1E1611</color><color name="surface">#2A1F18</color>
+    <color name="ink">#F5EBDD</color><color name="muted">#C4B2A0</color>
+    <color name="crust">#8F522B</color><color name="primary">#E8B27A</color><color name="on_primary">#2A1A10</color><color name="accent">#EBA46E</color>
+    <color name="brand_red">#EE6A6F</color><color name="wheat">#E3B25A</color>
+    <color name="line">#3F3127</color><color name="bread_icon">#E3B25A</color><color name="soft">#33271F</color>
+</resources>
