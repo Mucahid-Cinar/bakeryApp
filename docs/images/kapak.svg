@@ -1,0 +1,25 @@
+﻿<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="440" viewBox="0 0 1200 440" role="img" aria-labelledby="title desc">
+<title id="title">Setbaşı Fırını</title><desc id="desc">Üretimden gün sonuna günlük takip. Türkçe, çevrimdışı Android uygulaması.</desc>
+<rect width="1200" height="440" rx="28" fill="#FBF6EC"/>
+<path d="M0 400H1200V440H0Z" fill="#6B3A1E"/>
+<circle cx="1000" cy="195" r="155" fill="#F3E8D6"/>
+<g transform="translate(800 70) scale(1.65)"><path d="M24,134A76,6 0,1 0,176 134A76,6 0,1 0,24 134Z" fill-opacity="0.13" fill="#000000"/>
+<path d="M116,14L130,14L130,34L116,32Z" fill="#8C4F2B"/>
+<path d="M123,10C120,7.5 126,5 123,2" fill="none" stroke="#D9C9B5" stroke-width="2.5" stroke-linecap="round"/>
+<path d="M40,126L40,80A60,60 0,0 1,160 80L160,126Z" fill="#C27B4A"/>
+<path d="M56,40L144,40M44,60L156,60M40,80L160,80M40,104L160,104M78,23L78,40M118,23L118,40M66,40L66,60M100,40L100,60M134,40L134,60M58,60L58,80M84,60L84,80M116,60L116,80M142,60L142,80M60,80L60,104M140,80L140,104" fill="none" stroke="#A8633A" stroke-width="2" stroke-linecap="round"/>
+<path d="M70,126L70,100A30,30 0,0 1,130 100L130,126Z" fill="#3A2016"/>
+<path d="M82,126C82,114 91,112 89,103C98,109 100,116 100,120C102,113 106,111 106,104C115,113 118,120 118,126Z" fill="#F2A33A"/>
+<path d="M93,126C93,120 98,118 97,112C104,117 107,122 107,126Z" fill="#FFD36B"/>
+<path d="M28,126L172,126L172,134L28,134Z" fill="#8C4F2B"/>
+<path d="M146,126C146,113 156,106 168,106C180,106 190,113 190,126Z" fill="#E0A35C"/>
+<path d="M158,113L162,120M168,110L172,117M178,113L182,120" fill="none" stroke="#B06A2E" stroke-width="2.5" stroke-linecap="round"/></g>
+<g font-family="Segoe UI,Arial,sans-serif">
+<text x="64" y="76" font-size="17" font-weight="700" letter-spacing="3" fill="#B4541F">GÜNLÜK ÜRETİM VE STOK TAKİBİ</text>
+<text x="60" y="158" font-family="Georgia,serif" font-size="64" fill="#3B2416">Setbaşı <tspan fill="#C3202F">Fırını</tspan></text>
+<text x="64" y="218" font-size="27" fill="#3B2416">Üretimden gün sonuna, her adet kayıt altında.</text>
+<text x="64" y="261" font-size="21" fill="#7A6555">Üretimi planlayın. Satışı izleyin. Kalanı görün.</text>
+<rect x="64" y="307" width="510" height="46" rx="23" fill="#F3E8D6"/>
+<text x="88" y="337" font-size="18" fill="#6B3A1E">Türkçe arayüz  ·  Çevrimdışı  ·  Android 7.0+</text>
+<text x="64" y="426" font-size="16" fill="#FFFDF8">BUGÜN   /   EKMEK   /   RAPOR   /   ÖNERİ</text>
+</g></svg>

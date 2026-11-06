@@ -1,0 +1,10 @@
+﻿<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="500" viewBox="0 0 1200 500" role="img" aria-labelledby="title desc">
+<title id="title">Dört bölüm, günlük işin tamamı</title><desc id="desc">Bugün: üretim, satış, stok. Ekmek: ürünler ve haftalık plan. Rapor: dönem karşılaştırmaları ve paylaşım. Öneri: geçmişe dayalı üretim planlaması.</desc>
+<rect width="1200" height="500" rx="24" fill="#FBF6EC"/>
+<g font-family="Segoe UI,Arial,sans-serif">
+<text x="40" y="55" font-family="Georgia,serif" font-size="32" fill="#3B2416">Günün her aşamasında yanınızda.</text>
+<g fill="#FFFDF8" stroke="#EADFCB"><rect x="40" y="85" width="548" height="178" rx="20"/><rect x="612" y="85" width="548" height="178" rx="20"/><rect x="40" y="283" width="548" height="178" rx="20"/><rect x="612" y="283" width="548" height="178" rx="20"/></g>
+<g fill="#B4541F" font-size="15" font-weight="700" letter-spacing="2"><text x="66" y="119">01 / GÜNLÜK TAKİP</text><text x="638" y="119">02 / ÜRETİM PLANI</text><text x="66" y="317">03 / DÖNEM ANALİZİ</text><text x="638" y="317">04 / KARAR DESTEĞİ</text></g>
+<g fill="#3B2416" font-family="Georgia,serif" font-size="32"><text x="66" y="162">Bugün</text><text x="638" y="162">Ekmek</text><text x="66" y="360">Rapor</text><text x="638" y="360">Öneri</text></g>
+<g fill="#7A6555" font-size="20"><text x="66" y="201">Üretimi girin, satışları ekleyin.</text><text x="66" y="233">Kalan stoğu görün, günü tamamlayın.</text><text x="638" y="201">Ekmek türlerinizi düzenleyin.</text><text x="638" y="233">Haftanın her gününü ayrı planlayın.</text><text x="66" y="399">Günlük, haftalık ve aylık sonuçları inceleyin.</text><text x="66" y="431">Raporunuzu kolayca paylaşın.</text><text x="638" y="399">Geçmiş satışlara göre planı değerlendirin.</text><text x="638" y="431">Değişikliğin sonucunu takip edin.</text></g>
+</g></svg>
